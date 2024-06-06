@@ -55,3 +55,14 @@ CREATE TABLE Order_Item (
     FOREIGN KEY (order_id) REFERENCES `Order`(order_id),
     FOREIGN KEY (menu_id) REFERENCES Menu(menu_id)
 );
+
+CREATE TABLE Menu_Log (
+    log_id INT PRIMARY KEY AUTO_INCREMENT,
+    menu_id INT,
+    old_price DECIMAL(10, 2),
+    new_price DECIMAL(10, 2),
+    old_description TEXT,
+    new_description TEXT,
+    changed_at DATETIME,
+    FOREIGN KEY (menu_id) REFERENCES Menu(menu_id)
+);
